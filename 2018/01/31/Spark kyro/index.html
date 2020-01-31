@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="准备测试数据123[hadoop@hadoop000 logs]$ ls -lh总用量 150M-rw-r--r--. 1 root root 150M 01月 30 00:29 access.log  测试 rdd.persist(StorageLevel.MEMORY_ONLY)  缓存占存储空间为 590.9MB ，接近原始数据大小的4倍（具体倍数不好说，但是起码2倍以上）  rdd.per">
+  <meta name="description" content="准备测试数据123[hadoop@hadoop000 logs]$ ls -lh总用量 150M-rw-r--r--. 1 root root 150M 01月 30 00:29 access.log">
 <meta name="keywords" content="Spark">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark Kryo serialization">
 <meta property="og:url" content="https:&#x2F;&#x2F;keeponcoding.github.io&#x2F;2018&#x2F;01&#x2F;31&#x2F;Spark%20kyro&#x2F;index.html">
 <meta property="og:site_name" content="cll">
-<meta property="og:description" content="准备测试数据123[hadoop@hadoop000 logs]$ ls -lh总用量 150M-rw-r--r--. 1 root root 150M 01月 30 00:29 access.log  测试 rdd.persist(StorageLevel.MEMORY_ONLY)  缓存占存储空间为 590.9MB ，接近原始数据大小的4倍（具体倍数不好说，但是起码2倍以上）  rdd.per">
+<meta property="og:description" content="准备测试数据123[hadoop@hadoop000 logs]$ ls -lh总用量 150M-rw-r--r--. 1 root root 150M 01月 30 00:29 access.log">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-31T09:40:19.874Z">
+<meta property="og:updated_time" content="2020-01-31T13:48:47.229Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="cll" type="application/atom+xml">
@@ -279,6 +279,8 @@
   <div class="article-entry" itemprop="articleBody">
     
     <h1 id="准备测试数据"><a href="#准备测试数据" class="headerlink" title="准备测试数据"></a>准备测试数据</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop000 logs]$ ls -lh</span><br><span class="line">总用量 150M</span><br><span class="line">-rw-r--r--. 1 root root 150M 01月 30 00:29 access.log</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
 
 <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><ul>
 <li>rdd.persist(StorageLevel.MEMORY_ONLY)</li>
