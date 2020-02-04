@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="1.共性1、RDD、DataFrame、Dataset全都是spark平台下的分布式弹性数据集 2、三者都有惰性机制(lazy)，在进行创建、转换(transformation)，不会立即执行，只有在遇到Action算子时，三者才会开始运算。 3、三者都会根据spark的内存情况自动缓存运算，这样即使数据量很大，也不用担心会内存溢出 4、三者都有partition的概念。">
+  <meta name="description" content="1.共性1、RDD、DataFrame、Dataset全都是spark平台下的分布式弹性数据集2、三者都有惰性机制(lazy)，在进行创建、转换(transformation)，不会立即执行，只有在遇到Action算子时，三者才会开始运算。3、三者都会根据spark的内存情况自动缓存运算，这样即使数据量很大，也不用担心会内存溢出4、三者都有partition的概念。">
 <meta name="keywords" content="Spark">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark RDD、DataFrame和DataSet的区别">
 <meta property="og:url" content="https:&#x2F;&#x2F;keeponcoding.github.io&#x2F;2018&#x2F;02&#x2F;04&#x2F;Spark%20RDD%E3%80%81DataFrame%E5%92%8CDataSet%E7%9A%84%E5%8C%BA%E5%88%AB&#x2F;index.html">
 <meta property="og:site_name" content="cll">
-<meta property="og:description" content="1.共性1、RDD、DataFrame、Dataset全都是spark平台下的分布式弹性数据集 2、三者都有惰性机制(lazy)，在进行创建、转换(transformation)，不会立即执行，只有在遇到Action算子时，三者才会开始运算。 3、三者都会根据spark的内存情况自动缓存运算，这样即使数据量很大，也不用担心会内存溢出 4、三者都有partition的概念。">
+<meta property="og:description" content="1.共性1、RDD、DataFrame、Dataset全都是spark平台下的分布式弹性数据集2、三者都有惰性机制(lazy)，在进行创建、转换(transformation)，不会立即执行，只有在遇到Action算子时，三者才会开始运算。3、三者都会根据spark的内存情况自动缓存运算，这样即使数据量很大，也不用担心会内存溢出4、三者都有partition的概念。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-31T13:49:01.157Z">
+<meta property="og:updated_time" content="2020-02-04T02:12:53.717Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="cll" type="application/atom+xml">
@@ -258,7 +258,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">747字</span>
+      <span class="post-count">746字</span>
     </span>
   </span>
 
@@ -278,10 +278,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="1-共性"><a href="#1-共性" class="headerlink" title="1.共性"></a>1.共性</h1><p>1、RDD、DataFrame、Dataset全都是spark平台下的分布式弹性数据集</p>
-<p>2、三者都有惰性机制(lazy)，在进行创建、转换(transformation)，不会立即执行，只有在遇到Action算子时，三者才会开始运算。</p>
-<p>3、三者都会根据spark的内存情况自动缓存运算，这样即使数据量很大，也不用担心会内存溢出</p>
-<p>4、三者都有partition的概念。</p>
+    <h1 id="1-共性"><a href="#1-共性" class="headerlink" title="1.共性"></a>1.共性</h1><p>1、RDD、DataFrame、Dataset全都是spark平台下的分布式弹性数据集<br>2、三者都有惰性机制(lazy)，在进行创建、转换(transformation)，不会立即执行，只有在遇到Action算子时，三者才会开始运算。<br>3、三者都会根据spark的内存情况自动缓存运算，这样即使数据量很大，也不用担心会内存溢出<br>4、三者都有partition的概念。</p>
 <a id="more"></a>
 
 <h1 id="2-RDD优缺点"><a href="#2-RDD优缺点" class="headerlink" title="2.RDD优缺点"></a>2.RDD优缺点</h1><ul>
@@ -547,7 +544,7 @@
         minutes - 0-59之间的整数，做为date对象的分钟数 
         seconds - 0-59之间的整数，做为date对象的秒数 
         microseconds - 0-999之间的整数，做为date对象的毫秒数 */
-        var t1 = Date.UTC(2017, 09, 11, 00, 00, 00);
+        var t1 = Date.UTC(2018, 01, 20, 00, 00, 00);
         //北京时间2018-2-13 00:00:00
         var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
         var diff = t2 - t1;
