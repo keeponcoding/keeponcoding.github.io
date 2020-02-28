@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://keeponcoding.github.io">
-  <title>Spark Kryo serialization | cll</title>
+  <title>HDFS常用文件操作命令 | cll</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="准备测试数据123[hadoop@hadoop000 logs]$ ls -lh总用量 150M-rw-r--r--. 1 root root 150M 01月 30 00:29 access.log">
-<meta name="keywords" content="Spark">
+  <meta name="description" content="HDFS命令基本格式12hadoop fs -cmd &amp;lt; args &amp;gt;hdfs dfs -cmd &amp;lt; args &amp;gt;">
+<meta name="keywords" content="Hadoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spark Kryo serialization">
-<meta property="og:url" content="https:&#x2F;&#x2F;keeponcoding.github.io&#x2F;2018&#x2F;01&#x2F;31&#x2F;Spark%20kyro&#x2F;index.html">
+<meta property="og:title" content="HDFS常用文件操作命令">
+<meta property="og:url" content="https:&#x2F;&#x2F;keeponcoding.github.io&#x2F;2018&#x2F;01&#x2F;20&#x2F;HDFS%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4&#x2F;index.html">
 <meta property="og:site_name" content="cll">
-<meta property="og:description" content="准备测试数据123[hadoop@hadoop000 logs]$ ls -lh总用量 150M-rw-r--r--. 1 root root 150M 01月 30 00:29 access.log">
+<meta property="og:description" content="HDFS命令基本格式12hadoop fs -cmd &amp;lt; args &amp;gt;hdfs dfs -cmd &amp;lt; args &amp;gt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-31T13:48:47.229Z">
+<meta property="og:updated_time" content="2020-02-28T00:36:02.015Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="cll" type="application/atom+xml">
@@ -231,14 +231,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spark kyro" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-HDFS常用文件操作命令" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      Spark Kryo serialization
+      HDFS常用文件操作命令
     </h1>
   
 
@@ -250,8 +250,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2018/01/31/Spark%20kyro/" class="archive-article-date">
-        <time datetime="2018-01-31T08:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-31</time>
+<a href="/2018/01/20/HDFS%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+        <time datetime="2018-01-20T08:30:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
 </a>
 
   
@@ -264,7 +264,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">205字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -273,7 +273,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">6分</span>
     </span>
   </span>
 </div>
@@ -284,29 +284,81 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="准备测试数据"><a href="#准备测试数据" class="headerlink" title="准备测试数据"></a>准备测试数据</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop000 logs]$ ls -lh</span><br><span class="line">总用量 150M</span><br><span class="line">-rw-r--r--. 1 root root 150M 01月 30 00:29 access.log</span><br></pre></td></tr></table></figure>
+    <ul>
+<li><strong>HDFS命令基本格式</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop fs -cmd &lt; args &gt;</span><br><span class="line">hdfs dfs -cmd &lt; args &gt;</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
 <a id="more"></a>
 
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><ul>
-<li>rdd.persist(StorageLevel.MEMORY_ONLY)</li>
-</ul>
-<p>缓存占存储空间为 590.9MB ，接近原始数据大小的4倍（具体倍数不好说，但是起码2倍以上）</p>
 <ul>
-<li>rdd.persist(StorageLevel.MEMORY_ONLY_SER)</li>
-</ul>
-<p>缓存占存储空间为 111.1MB，远远小于 MEMORY_ONLY ，且比原始数据小</p>
-<ul>
-<li><p>rdd.persist(StorageLevel.MEMORY_ONLY_SER)</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> sparkConf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">sparkConf.set(<span class="string">"spark.serializer"</span>,<span class="string">"org.apache.spark.serializer.KryoSerializer"</span>)</span><br><span class="line"><span class="comment">// 注意 此处只是设置了 没有 register</span></span><br></pre></td></tr></table></figure>
-<p>缓存占存储空间为 108.3MB，此种情况跟单单使用 ``rdd.persist(StorageLevel.MEMORY_ONLY_SER` ，效果差不多</p>
+<li><p><strong>ls 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出hdfs文件系统根目录下的目录和文件</span></span><br><span class="line">hadoop fs -ls  /</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列出hdfs文件系统所有的目录和文件</span></span><br><span class="line">hadoop fs -ls -R /</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>rdd.persist(StorageLevel.MEMORY_ONLY_SER)</p>
-<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> sparkConf = <span class="keyword">new</span> <span class="type">SparkConf</span>()</span><br><span class="line">sparkConf.set(<span class="string">"spark.serializer"</span>,<span class="string">"org.apache.spark.serializer.KryoSerializer"</span>)</span><br><span class="line"><span class="comment">// AccessLog implements Serializable</span></span><br><span class="line">sparkConf.registerKryoClasses(<span class="type">Array</span>(classOf[<span class="type">AccessLog</span>]))</span><br></pre></td></tr></table></figure>
+<li><p><strong>put 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># hdfs file的父目录一定要存在，否则命令不会执行</span></span><br><span class="line">hadoop fs -put &lt; <span class="built_in">local</span> file &gt; &lt; hdfs file &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># hdfs dir 一定要存在，否则命令不会执行</span></span><br><span class="line">hadoop fs -put  &lt; <span class="built_in">local</span> file or dir &gt;...&lt; hdfs dir &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从键盘读取输入到hdfs file中，按Ctrl+D结束输入，hdfs file不能存在，否则命令不会执行</span></span><br><span class="line">hadoop fs -put - &lt; hdsf  file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>moveFromLocal 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与put相类似，命令执行后源文件 local src 被删除，也可以从从键盘读取输入到hdfs file中</span></span><br><span class="line">hadoop fs -moveFromLocal  &lt; <span class="built_in">local</span> src &gt; ... &lt; hdfs dst &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>copyFromLocal 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与put相类似，也可以从从键盘读取输入到hdfs file中</span></span><br><span class="line">hadoop fs -copyFromLocal  &lt; <span class="built_in">local</span> src &gt; ... &lt; hdfs dst &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>get 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># local file不能和 hdfs file名字不能相同，否则会提示文件已存在，没有重名的文件会复制到本地</span></span><br><span class="line">hadoop fs -get &lt; hdfs file &gt; &lt; <span class="built_in">local</span> file or dir&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拷贝多个文件或目录到本地时，本地要为文件夹路径</span></span><br><span class="line"><span class="comment"># 注意：如果用户不是root， local 路径要为用户文件夹下的路径，否则会出现权限问题，</span></span><br><span class="line">hadoop fs -get &lt; hdfs file or dir &gt; ... &lt; <span class="built_in">local</span>  dir &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>copyToLocal 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 与get相类似</span></span><br><span class="line">hadoop fs -copyToLocal &lt; <span class="built_in">local</span> src &gt; ... &lt; hdfs dst &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>rm 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 每次可以删除多个文件或目录</span></span><br><span class="line">hadoop fs -rm &lt; hdfs file &gt; ...</span><br><span class="line">hadoop fs -rm -r &lt; hdfs dir&gt;...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>mkdir 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只能一级一级的建目录，父目录不存在的话使用这个命令会报错</span></span><br><span class="line">hadoop fs -mkdir &lt; hdfs path&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 所创建的目录如果父目录不存在就创建该父目录</span></span><br><span class="line">hadoop fs -mkdir -p &lt; hdfs path&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>getmerge 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将hdfs指定目录下所有文件排序后合并到local指定的文件中，文件不存在时会自动创建，文件存在时会覆盖里面的内容</span></span><br><span class="line">hadoop fs -getmerge &lt; hdfs dir &gt;  &lt; <span class="built_in">local</span> file &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加上nl后，合并到local file中的hdfs文件之间会空出一行</span></span><br><span class="line">hadoop fs -getmerge -nl  &lt; hdfs dir &gt;  &lt; <span class="built_in">local</span> file &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>cp 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 目标文件不能存在，否则命令不能执行，相当于给文件重命名并保存，源文件还存在</span></span><br><span class="line">hadoop fs -cp  &lt; hdfs file &gt;  &lt; hdfs file &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目标文件夹要存在，否则命令不能执行</span></span><br><span class="line">hadoop fs -cp &lt; hdfs file or dir &gt;... &lt; hdfs dir &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>mv 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 目标文件不能存在，否则命令不能执行，相当于给文件重命名并保存，源文件不存在</span></span><br><span class="line">hadoop fs -mv &lt; hdfs file &gt;  &lt; hdfs file &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 源路径有多个时，目标路径必须为目录，且必须存在。</span></span><br><span class="line"><span class="comment"># 注意：跨文件系统的移动（local到hdfs或者反过来）都是不允许的</span></span><br><span class="line">hadoop fs -mv  &lt; hdfs file or dir &gt;...  &lt; hdfs dir &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>count 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 统计hdfs对应路径下的目录个数，文件个数，文件总计大小</span></span><br><span class="line"><span class="comment"># 显示为目录个数，文件个数，文件总计大小，输入路径</span></span><br><span class="line">hadoop fs -count &lt; hdfs path &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>du 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示hdfs对应路径下每个文件夹和文件的大小</span></span><br><span class="line">hadoop fs -du &lt; hdsf path&gt; </span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示hdfs对应路径下所有文件和的大小</span></span><br><span class="line">hadoop fs -du -s &lt; hdsf path&gt; </span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示hdfs对应路径下每个文件夹和文件的大小,文件的大小用方便阅读的形式表示，例如用64M代替67108864</span></span><br><span class="line">hadoop fs -du - h &lt; hdsf path&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>text 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将文本文件或某些格式的非文本文件通过文本格式输出</span></span><br><span class="line">hadoop fs -text &lt; hdsf file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>setrep 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 改变一个文件在hdfs中的副本个数，上述命令中数字3为所设置的副本个数，-R选项可以对一个人目录下的所有目录+文件递归执行改变副本个数的操作</span></span><br><span class="line">hadoop fs -setrep -R 3 &lt; hdfs path &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>stat 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 返回对应路径的状态信息</span></span><br><span class="line"><span class="comment"># [format]可选参数有：%b（文件大小），%o（Block大小），%n（文件名），%r（副本个数），%y（最后一次修改日期和时间）</span></span><br><span class="line"><span class="comment"># 可以这样书写hadoop fs -stat %b%o%n &lt; hdfs path &gt;，不过不建议，这样每个字符输出的结果不是太容易分清楚</span></span><br><span class="line">hdoop fs -<span class="built_in">stat</span> [format] &lt; hdfs path &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>tail 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在标准输出中显示文件末尾的1KB数据</span></span><br><span class="line">hadoop fs -tail &lt; hdfs file &gt;</span><br></pre></td></tr></table></figure>
+
 
 </li>
 </ul>
-<p>缓存占存储空间为 76.6MB，此种情况节省的存储空间就很可观了</p>
+<ul>
+<li><p><strong>archive 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令中参数name：压缩文件名，自己任意取；</span></span><br><span class="line"><span class="comment"># &lt; hdfs parent dir &gt; ：压缩文件所在的父目录；</span></span><br><span class="line"><span class="comment"># &lt; src &gt;：要压缩的文件名；</span></span><br><span class="line"><span class="comment"># &lt; hdfs dst &gt;：压缩文件存放路径</span></span><br><span class="line">hadoop archive -archiveName name.har -p &lt; hdfs parent dir &gt; &lt; src &gt;* &lt; hdfs dst &gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># *示例：hadoop archive -archiveName hadoop.har -p /user 1.txt 2.txt /des</span></span><br><span class="line"><span class="comment"># 示例中将hdfs中/user目录下的文件1.txt，2.txt压缩成一个名叫hadoop.har的文件存放在hdfs中/des目录下，如果1.txt，2.txt不写就是将/user目录下所有的目录和文件压缩成一个名叫hadoop.har的文件存放在hdfs中/des目录下</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示har的内容可以用如下命令：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示har压缩的是那些文件可以用如下命令</span></span><br><span class="line">hadoop fs -ls /des/hadoop.jar</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：har文件不能进行二次压缩。如果想给.har加文件，只能找到原来的文件，重新创建一个。har文件中原来文件的数据并没有变化，har文件真正的作用是减少NameNode和DataNode过多的空间浪费。</span></span><br><span class="line">hadoop fs -ls -R har:///des/hadoop.har</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>balancer 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果管理员发现某些DataNode保存数据过多，某些DataNode保存数据相对较少，可以使用上述命令手动启动内部的均衡过程</span></span><br><span class="line">hdfs balancer</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>dfsadmin 命令</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 管理员可以通过dfsadmin管理HDFS，用法可以通过上述命令查看</span></span><br><span class="line">hdfs dfsadmin -<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示文件系统的基本数据</span></span><br><span class="line">hdfs dfsadmin -report</span><br><span class="line"></span><br><span class="line"><span class="comment"># enter：进入安全模式；leave：离开安全模式；get：获知是否开启安全模式；</span></span><br><span class="line"><span class="comment"># wait：等待离开安全模式</span></span><br><span class="line">hdfs dfsadmin -safemode &lt; enter | leave | get | <span class="built_in">wait</span> &gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>distcp 命令</strong><br>用来在两个HDFS之间拷贝数据</p>
+</li>
+</ul>
 
     
 
@@ -353,7 +405,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://keeponcoding.github.io/2018/01/31/Spark kyro/" title="Spark Kryo serialization" target="_blank">https://keeponcoding.github.io/2018/01/31/Spark kyro/</a>
+          <a href="https://keeponcoding.github.io/2018/01/20/HDFS常用文件操作命令/" title="HDFS常用文件操作命令" target="_blank">https://keeponcoding.github.io/2018/01/20/HDFS常用文件操作命令/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -372,7 +424,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Spark</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Hadoop</a>
         		</li>
       		
 		</ul>
@@ -384,7 +436,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Spark//" class="article-tag-list-link color1">Spark</a>
+        			<a href="/categories/Hadoop//" class="article-tag-list-link color2">Hadoop</a>
         		</li>
       		
 		</ul>
@@ -439,7 +491,7 @@
     <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://keeponcoding.github.io/2018/01/31/Spark%20kyro/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://keeponcoding.github.io/2018/01/20/HDFS%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -454,20 +506,15 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/02/04/Spark%20RDD%E3%80%81DataFrame%E5%92%8CDataSet%E7%9A%84%E5%8C%BA%E5%88%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/31/Spark%20kyro/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Spark RDD、DataFrame和DataSet的区别
+          Spark Kryo serialization
         
       </div>
     </a>
   
-  
-    <a href="/2018/01/20/HDFS%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HDFS常用文件操作命令</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
