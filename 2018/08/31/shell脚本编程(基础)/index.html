@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="输出字符串hello world  1234567891011121314151617[root@hadoop001 learn_shell]# vi test.sh#!&#x2F;bin&#x2F;bashecho &quot;hello world!&quot;# 默认是没有可执行权限的[root@hadoop001 learn_shell]# ll 总用量 4-rw-r--r-- 1 root root 34 8月  24 07">
+  <meta name="description" content="输出字符串hello world">
 <meta name="keywords" content="Shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark Kryo serialization">
 <meta property="og:url" content="https:&#x2F;&#x2F;keeponcoding.github.io&#x2F;2018&#x2F;08&#x2F;31&#x2F;shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B(%E5%9F%BA%E7%A1%80)&#x2F;index.html">
 <meta property="og:site_name" content="cll">
-<meta property="og:description" content="输出字符串hello world  1234567891011121314151617[root@hadoop001 learn_shell]# vi test.sh#!&#x2F;bin&#x2F;bashecho &quot;hello world!&quot;# 默认是没有可执行权限的[root@hadoop001 learn_shell]# ll 总用量 4-rw-r--r-- 1 root root 34 8月  24 07">
+<meta property="og:description" content="输出字符串hello world">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-04T03:30:11.319Z">
+<meta property="og:updated_time" content="2020-03-04T07:25:51.234Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="cll" type="application/atom+xml">
@@ -287,6 +287,8 @@
     <ul>
 <li>输出字符串hello world</li>
 </ul>
+<a id="more"></a>
+
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop001 learn_shell]# vi test.sh</span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">echo "hello world!"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 默认是没有可执行权限的</span></span><br><span class="line">[root@hadoop001 learn_shell]# ll </span><br><span class="line">总用量 4</span><br><span class="line">-rw-r--r-- 1 root root 34 8月  24 07:53 test.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改文件权限 给文件拥有者可执行权限</span></span><br><span class="line">[root@hadoop001 learn_shell]# chmod u+x test.sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 两种执行方式 1.相对路径 2.绝对路径</span></span><br><span class="line">[root@hadoop001 learn_shell]# ./test.sh</span><br><span class="line">hello world!</span><br><span class="line">[root@hadoop001 learn_shell]# /root/learn_shell/test.sh</span><br><span class="line">hello world!</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -712,7 +714,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">Spark</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">Flume</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -720,11 +722,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">Shell</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">Spark</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">Flume</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">Shell</a>
               </li>
             
             <div class="clearfix"></div>
