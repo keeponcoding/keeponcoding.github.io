@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://keeponcoding.github.io">
-  <title>Archives | cll</title>
+  <title>hadoop集成lzo压缩测试 | cll</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="hadoop、spark、hive、flink、java">
-<meta property="og:type" content="website">
-<meta property="og:title" content="cll">
-<meta property="og:url" content="https:&#x2F;&#x2F;keeponcoding.github.io&#x2F;archives&#x2F;index.html">
+  <meta name="description" content="1.环境准备 jdk1.8&#x2F;maven3.6.0&#x2F;hadoop伪分布式   安装需要的库  1yum -y install lzo-devel zlib-devel gcc autoconf automake libtool  2.安装 lzo2.1.下载并解压lzo12345# 下载lzo压缩包[hadoop@hadoop000 software]$ wget www.oberhumer.com">
+<meta name="keywords" content="Hadoop">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hadoop集成lzo压缩测试">
+<meta property="og:url" content="https:&#x2F;&#x2F;keeponcoding.github.io&#x2F;2018&#x2F;09&#x2F;30&#x2F;hadoop%E9%9B%86%E6%88%90lzo%E5%8E%8B%E7%BC%A9%E6%B5%8B%E8%AF%95&#x2F;index.html">
 <meta property="og:site_name" content="cll">
-<meta property="og:description" content="hadoop、spark、hive、flink、java">
+<meta property="og:description" content="1.环境准备 jdk1.8&#x2F;maven3.6.0&#x2F;hadoop伪分布式   安装需要的库  1yum -y install lzo-devel zlib-devel gcc autoconf automake libtool  2.安装 lzo2.1.下载并解压lzo12345# 下载lzo压缩包[hadoop@hadoop000 software]$ wget www.oberhumer.com">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-04T07:11:32.692Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="cll" type="application/atom+xml">
@@ -229,41 +231,180 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-hadoop集成lzo压缩测试" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      hadoop集成lzo压缩测试
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2018/09/30/hadoop%E9%9B%86%E6%88%90lzo%E5%8E%8B%E7%BC%A9%E6%B5%8B%E8%AF%95/" class="archive-article-date">
         <time datetime="2018-09-30T08:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-30</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">7分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1.环境准备"></a>1.环境准备</h1><ul>
+<li>jdk1.8/maven3.6.0/hadoop伪分布式</li>
+</ul>
+<ul>
+<li>安装需要的库</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install lzo-devel zlib-devel gcc autoconf automake libtool</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-安装-lzo"><a href="#2-安装-lzo" class="headerlink" title="2.安装 lzo"></a>2.安装 lzo</h1><h2 id="2-1-下载并解压lzo"><a href="#2-1-下载并解压lzo" class="headerlink" title="2.1.下载并解压lzo"></a>2.1.下载并解压lzo</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载lzo压缩包</span></span><br><span class="line">[hadoop@hadoop000 software]$ wget www.oberhumer.com/opensource/lzo/download/lzo-2.06.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 解压缩</span></span><br><span class="line">[hadoop@hadoop000 software]$ tar -zxvf lzo-2.06.tar.gz -C ~/app/</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-编译并安装"><a href="#2-2-编译并安装" class="headerlink" title="2.2.编译并安装"></a>2.2.编译并安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop000 lzo-2.06]$ pwd</span><br><span class="line">/home/hadoop/app/lzo-2.06</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop000 lzo-2.06]$ export CFLAGS=-m64</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建存放编译后的目录</span></span><br><span class="line">[hadoop@hadoop000 lzo-2.06]$ mkdir compile</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译安装</span></span><br><span class="line">[hadoop@hadoop000 lzo-2.06]$ ./configure -enable-shared -prefix=/home/hadoop/app/lzo-2.06/complie/</span><br><span class="line">[hadoop@hadoop000 lzo-2.06]$ make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看编译结果</span></span><br><span class="line">[hadoop@hadoop000 compile]$ ll</span><br><span class="line">总用量 0</span><br><span class="line">drwxrwxr-x. 3 hadoop hadoop  17 9月  30 05:31 include</span><br><span class="line">drwxrwxr-x. 2 hadoop hadoop 103 9月  30 05:31 lib</span><br><span class="line">drwxrwxr-x. 3 hadoop hadoop  17 9月  30 05:31 share</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-安装hadoop-lzo"><a href="#3-安装hadoop-lzo" class="headerlink" title="3.安装hadoop-lzo"></a>3.安装hadoop-lzo</h1><h2 id="3-1-下载并解压"><a href="#3-1-下载并解压" class="headerlink" title="3.1.下载并解压"></a>3.1.下载并解压</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载</span></span><br><span class="line">[hadoop@hadoop000 software]$ wget https://github.com/twitter/hadoop-lzo/archive/master.zip</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">解压   解压出来的是 hadoop-lzo-master</span></span><br><span class="line">[hadoop@hadoop000 software]$ unzip master</span><br><span class="line"></span><br><span class="line">[hadoop@hadoop000 software]$ mv hadoop-lzo-master ~/app/</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-修改pom-xml并增加配置"><a href="#3-2-修改pom-xml并增加配置" class="headerlink" title="3.2.修改pom.xml并增加配置"></a>3.2.修改pom.xml并增加配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 修改pom.xml</span></span><br><span class="line">[hadoop@hadoop000 hadoop-lzo-master]$ vi pom.xml</span><br><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">    &lt;!--该处修改成对应的hadoop版本即可--&gt;</span><br><span class="line">    &lt;hadoop.current.version&gt;2.6.0&lt;/hadoop.current.version&gt;</span><br><span class="line">    &lt;hadoop.old.version&gt;1.0.4&lt;/hadoop.old.version&gt;</span><br><span class="line">  &lt;/properties&gt;</span><br><span class="line">  </span><br><span class="line"><span class="meta">#</span><span class="bash"> 增加配置</span></span><br><span class="line">[hadoop@hadoop000 hadoop-lzo-master]$ export CFLAGS=-m64</span><br><span class="line">[hadoop@hadoop000 hadoop-lzo-master]$ export CXXFLAGS=-m64</span><br><span class="line">[hadoop@hadoop000 hadoop-lzo-master]$ export C_INCLUDE_PATH=/home/hadoop/app/lzo-2.06/compile/include/</span><br><span class="line">[hadoop@hadoop000 hadoop-lzo-master]$ export LIBRARY_PATH=/home/hadoop/app/lzo-2.06/compile/lib/</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-编译"><a href="#3-3-编译" class="headerlink" title="3.3.编译"></a>3.3.编译</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop000 hadoop-lzo-master]$ mvn clean package -Dmaven.test.skip=true</span><br><span class="line">......</span><br><span class="line">BUILD SUCCESS</span><br><span class="line">......</span><br><span class="line"><span class="meta">#</span><span class="bash"> 等待编译至成功即可</span></span><br><span class="line"></span><br><span class="line">[hadoop@hadoop000 Linux-amd64-64]$ pwd</span><br><span class="line">/home/hadoop/app/hadoop-lzo-master/target/native/Linux-amd64-64</span><br><span class="line">[hadoop@hadoop000 Linux-amd64-64]$ tar -cBf - -C lib . | tar -xBvf - -C ~</span><br><span class="line">./</span><br><span class="line">./libgplcompression.so.0.0.0</span><br><span class="line">./libgplcompression.so.0</span><br><span class="line">./libgplcompression.so</span><br><span class="line">./libgplcompression.la</span><br><span class="line">./libgplcompression.a</span><br><span class="line">[hadoop@hadoop000 Linux-amd64-64]$ cp ~/libgplcompression* $HADOOP_HOME/lib/native/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 拷贝jar包</span></span><br><span class="line">[hadoop@hadoop000 target]$ pwd</span><br><span class="line">/home/hadoop/app/hadoop-lzo-master/target</span><br><span class="line">[hadoop@hadoop000 target]$ cp hadoop-lzo-0.4.21-SNAPSHOT.jar $HADOOP_HOME/share/hadoop/common/</span><br><span class="line">[hadoop@hadoop000 target]$ cp hadoop-lzo-0.4.21-SNAPSHOT.jar $HADOOP_HOME/share/hadoop/mapreduce/lib/</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-修改hadoop配置并重启"><a href="#4-修改hadoop配置并重启" class="headerlink" title="4.修改hadoop配置并重启"></a>4.修改hadoop配置并重启</h1><h2 id="4-1-修改配置文件"><a href="#4-1-修改配置文件" class="headerlink" title="4.1.修改配置文件"></a>4.1.修改配置文件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop000 hadoop]$ pwd</span><br><span class="line">/home/hadoop/app/hadoop/etc/hadoop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> hadoop-env.sh</span></span><br><span class="line">[hadoop@hadoop000 hadoop]$ vi hadoop-env.sh </span><br><span class="line"><span class="meta">#</span><span class="bash"> 增加编译好的lzo下的lib</span></span><br><span class="line">export LD_LIBRARY_PATH=/home/hadoop/app/lzo-2.06/compile/lib</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> core-site.xml </span></span><br><span class="line">[hadoop@hadoop000 hadoop]$ vi core-site.xml </span><br><span class="line">&lt;!--压缩--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;io.compression.codecs&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;org.apache.hadoop.io.compress.GzipCodec,</span><br><span class="line">            org.apache.hadoop.io.compress.DefaultCodec,</span><br><span class="line">            org.apache.hadoop.io.compress.BZip2Codec,</span><br><span class="line">            com.hadoop.compression.lzo.LzoCodec,</span><br><span class="line">            com.hadoop.compression.lzo.LzopCodec</span><br><span class="line">    &lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;io.compression.codec.lzo.class&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;com.hadoop.compression.lzo.LzoCodec&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> mapred-site.xml</span></span><br><span class="line">[hadoop@hadoop000 hadoop]$ vi mapred-site.xml</span><br><span class="line">&lt;!--lzo压缩   start--&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;mapred.child.env &lt;/name&gt;</span><br><span class="line">    &lt;value&gt;LD_LIBRARY_PATH=/home/hadoop/app/lzo-2.06/compile/lib&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;mapreduce.map.output.compress&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;true&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;mapreduce.map.output.compress.codec&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;com.hadoop.compression.lzo.LzoCodec&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;!--end--&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-重启hadoop"><a href="#4-2-重启hadoop" class="headerlink" title="4.2.重启hadoop"></a>4.2.重启hadoop</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop000 data]$ stop-dfs.sh</span><br><span class="line">[hadoop@hadoop000 data]$ start-dfs.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="5-测试lzo压缩"><a href="#5-测试lzo压缩" class="headerlink" title="5.测试lzo压缩"></a>5.测试lzo压缩</h1><ul>
+<li><p>准备测试数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 压缩前  root用户下安装 lzop</span></span><br><span class="line">yum install lzop</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 准备测试数据</span></span><br><span class="line">[hadoop@hadoop000 data]$ split -b 350m access.log</span><br><span class="line"><span class="meta">#</span><span class="bash"> 压缩数据</span></span><br><span class="line">[hadoop@hadoop000 data]$ lzop access_testlzo.log</span><br><span class="line">[hadoop@hadoop000 data]$ ll -lh access_testlzo.log.lzo </span><br><span class="line">-rw-rw-r--. 1 hadoop hadoop 160M 9月  30 13:11 access_testlzo.log.lzo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行hadoop样例wordcount</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop000 mapreduce]$ pwd</span><br><span class="line">/home/hadoop/app/hadoop/share/hadoop/mapreduce</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 运行wc 查看日志发现 hadoop并没有给lzo切片</span></span><br><span class="line">[hadoop@hadoop000 mapreduce]$ hadoop jar \</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hadoop-mapreduce-examples-2.6.0-cdh5.15.1.jar wordcount \</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /data/access_testlzo.log.lzo \</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /out</span></span><br><span class="line">19/09/30 13:25:16 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032</span><br><span class="line">19/09/30 13:25:18 INFO input.FileInputFormat: Total input paths to process : 1</span><br><span class="line">19/09/30 13:25:18 INFO lzo.GPLNativeCodeLoader: Loaded native gpl library from the embedded binaries</span><br><span class="line">19/09/30 13:25:18 INFO lzo.LzoCodec: Successfully loaded &amp; initialized native-lzo library [hadoop-lzo rev 5dbdddb8cfb544e58b4e0b9664b9d1b66657faf5]</span><br><span class="line"><span class="meta">#</span><span class="bash"> 该处可以发现 lzo 默认是不进行分片的</span></span><br><span class="line">19/09/30 13:25:18 INFO mapreduce.JobSubmitter: number of splits:1</span><br><span class="line">19/09/30 13:25:18 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1569814006008_0001</span><br><span class="line">19/09/30 13:25:19 INFO impl.YarnClientImpl: Submitted application application_1569814006008_0001</span><br><span class="line">19/09/30 13:25:19 INFO mapreduce.Job: The url to track the job: http://hadoop000:8088/proxy/application_1569814006008_0001/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>加索引并且设置inputformat<br>⚠️让lzo支持分片的两步操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[hadoop@hadoop000 lib]$ pwd</span><br><span class="line">/home/hadoop/app/hadoop/share/hadoop/mapreduce/lib</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加索引操作</span></span><br><span class="line">[hadoop@hadoop000 lib]$ hadoop jar \</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hadoop-lzo-0.4.21-SNAPSHOT.jar \</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> com.hadoop.compression.lzo.DistributedLzoIndexer \</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /data/access_testlzo.log.lzo</span></span><br><span class="line"></span><br><span class="line">[hadoop@hadoop000 lib]$ hdfs dfs -ls /data</span><br><span class="line">Found 3 items</span><br><span class="line">-rw-r--r--   1 hadoop supergroup  167664788 2019-09-30 13:17 /data/access_testlzo.log.lzo</span><br><span class="line">-rw-r--r--   1 hadoop supergroup      11200 2019-09-30 13:31 /data/access_testlzo.log.lzo.index</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[hadoop@hadoop000 mapreduce]$ hadoop jar \</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hadoop-mapreduce-examples-2.6.0-cdh5.15.1.jar wordcount \</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> -Dmapreduce.job.inputformat.class=com.hadoop.mapreduce.LzoTextInputFormat \</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /data/access_testlzo.log.lzo \</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> /out</span></span><br><span class="line">19/09/30 13:34:51 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032</span><br><span class="line">19/09/30 13:34:52 INFO input.FileInputFormat: Total input paths to process : 1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 可以看出此出被且分成两个</span></span><br><span class="line">19/09/30 13:34:52 INFO mapreduce.JobSubmitter: number of splits:2</span><br><span class="line">19/09/30 13:34:53 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1569814006008_0003</span><br><span class="line">19/09/30 13:34:53 INFO impl.YarnClientImpl: Submitted application application_1569814006008_0003</span><br><span class="line">19/09/30 13:34:53 INFO mapreduce.Job: The url to track the job: http://hadoop000:8088/proxy/application_1569814006008_0003/</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</li>
+</ul>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2018/09/30/hadoop%E9%9B%86%E6%88%90lzo%E5%8E%8B%E7%BC%A9%E6%B5%8B%E8%AF%95/" target="_blank">hadoop集成lzo压缩测试</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          cll
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://keeponcoding.github.io/2018/09/30/hadoop集成lzo压缩测试/" title="hadoop集成lzo压缩测试" target="_blank">https://keeponcoding.github.io/2018/09/30/hadoop集成lzo压缩测试/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
 
-        <div class="article-info info-on-right">
-          
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -275,7 +416,7 @@
 		</ul>
 	</div>
 
-          
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -288,449 +429,105 @@
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://keeponcoding.github.io/2018/09/30/hadoop%E9%9B%86%E6%88%90lzo%E5%8E%8B%E7%BC%A9%E6%B5%8B%E8%AF%95/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2018/08/31/shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B(%E5%9F%BA%E7%A1%80)/" class="archive-article-date">
-        <time datetime="2018-08-31T03:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-31</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/31/shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B(%E5%9F%BA%E7%A1%80)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spark Kryo serialization</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2018/08/31/shell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B(%E5%9F%BA%E7%A1%80)/" target="_blank">Spark Kryo serialization</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Shell//" class="article-tag-list-link color1">Shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2018/05/02/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9%E6%A0%BC%E5%BC%8F%E3%80%81%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" class="archive-article-date">
-        <time datetime="2018-05-02T02:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-02</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2018/05/02/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%8E%8B%E7%BC%A9%E6%A0%BC%E5%BC%8F%E3%80%81%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" target="_blank">大数据压缩格式、区别以及使用场景</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Hadoop//" class="article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2018/04/20/Flume-%E5%B8%B8%E7%94%A8source%E7%BB%84%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%A1%88%E4%BE%8B/" class="archive-article-date">
-        <time datetime="2018-04-20T05:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2018/04/20/Flume-%E5%B8%B8%E7%94%A8source%E7%BB%84%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%A1%88%E4%BE%8B/" target="_blank">Flume-常用source组件测试案例</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Flume</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Flume//" class="article-tag-list-link color1">Flume</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2018/03/31/SparkStreaming+Kafka%E7%9A%84offset%E7%AE%A1%E7%90%86/" class="archive-article-date">
-        <time datetime="2018-03-31T05:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2018/03/31/SparkStreaming+Kafka%E7%9A%84offset%E7%AE%A1%E7%90%86/" target="_blank">SparkStreaming+Kafka的offset管理</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Spark//" class="article-tag-list-link color1">Spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2018/02/04/Spark%20RDD%E3%80%81DataFrame%E5%92%8CDataSet%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-        <time datetime="2018-02-04T04:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-04</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2018/02/04/Spark%20RDD%E3%80%81DataFrame%E5%92%8CDataSet%E7%9A%84%E5%8C%BA%E5%88%AB/" target="_blank">Spark RDD、DataFrame和DataSet的区别</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Spark//" class="article-tag-list-link color1">Spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2018/01/31/Spark%20kyro/" class="archive-article-date">
-        <time datetime="2018-01-31T08:35:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-31</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2018/01/31/Spark%20kyro/" target="_blank">Spark Kryo serialization</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color1">Spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Spark//" class="article-tag-list-link color1">Spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2018/01/20/HDFS%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2018-01-20T08:30:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2018/01/20/HDFS%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4/" target="_blank">HDFS常用文件操作命令</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Hadoop//" class="article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2018/01/15/HDFS-YARN%20HA%E6%9E%B6%E6%9E%84%E5%8F%8A%E7%BB%84%E4%BB%B6%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
-        <time datetime="2018-01-15T02:30:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2018/01/15/HDFS-YARN%20HA%E6%9E%B6%E6%9E%84%E5%8F%8A%E7%BB%84%E4%BB%B6%E8%AF%A6%E8%A7%A3/" target="_blank">HDFS-YARN HA架构及组件详解</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Hadoop//" class="article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -803,8 +600,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
